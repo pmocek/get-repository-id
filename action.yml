@@ -1,18 +1,18 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Get repository ID'
+description: 'Gets the ID of the specified GitHub repository'
+author: 'Noelia Ruiz Martínez'
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  repository:
+    description: 'Repository name with owner. For example, nvdaes/getRepositoryId'
     required: true
-    default: '1000'
+    default: ${{ github.repository }}
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  repoId:
+    description: 'The ID of the specified repository'
 
 runs:
   using: node20
