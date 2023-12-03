@@ -28959,11 +28959,7 @@ async function inputHelper() {
     `${github.context.repo.owner}/${github.context.repo.repo}`
   core.debug(`qualified repository = '${qualifiedRepository}'`)
   const splitRepository = qualifiedRepository.split('/')
-  if (
-    !splitRepository.length !== 2 ||
-    !splitRepository[0] ||
-    !splitRepository[1]
-  ) {
+  if (splitRepository.length !== 2) {
     core.setFailed(
       `Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}.`
     )
