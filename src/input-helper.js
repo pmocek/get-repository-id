@@ -16,10 +16,11 @@ async function inputHelper() {
       `Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}.`
     )
   }
-  const result = {}
-  result.owner = splitRepository[0]
-  result.name = splitRepository[1]
-  return result
+  const variables = {
+    owner: splitRepository[0],
+    name: splitRepository[1]
+  }
+  return variables
 }
 
 module.exports = {

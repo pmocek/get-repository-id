@@ -28921,16 +28921,12 @@ async function getRepositoryId() {
   const octokit = github.getOctokit(token, {
     userAgent: 'getRepositoryIdVersion1'
   })
-  const repo = inputHelper()
+  const variables = inputHelper()
   const query = `query($owner:String!, $name:String!) {
     repository(owner:$owner, name:$name){
       id
     }
   }`
-  const variables = {
-    owner: repo.owner,
-    name: repo.name
-  }
   const result = await octokit.graphql(query, variables)
   const repoId = result.repository.id
   return repoId
@@ -28964,10 +28960,11 @@ async function inputHelper() {
       `Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}.`
     )
   }
-  const result = {}
-  result.owner = splitRepository[0]
-  result.name = splitRepository[1]
-  return result
+  const variables = {
+    owner: splitRepository[0],
+    name: splitRepository[1]
+  }
+  return variables
 }
 
 module.exports = {

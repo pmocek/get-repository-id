@@ -10,16 +10,12 @@ async function getRepositoryId() {
   const octokit = github.getOctokit(token, {
     userAgent: 'getRepositoryIdVersion1'
   })
-  const repo = inputHelper()
+  const variables = inputHelper()
   const query = `query($owner:String!, $name:String!) {
     repository(owner:$owner, name:$name){
       id
     }
   }`
-  const variables = {
-    owner: repo.owner,
-    name: repo.name
-  }
   const result = await octokit.graphql(query, variables)
   const repoId = result.repository.id
   return repoId
