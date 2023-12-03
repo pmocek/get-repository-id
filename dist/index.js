@@ -28913,12 +28913,14 @@ function wrappy (fn, cb) {
  * Function to get the ID of the specified repo
  */
 const core = __nccwpck_require__(2186)
-const github = __nccwpck_require__(1488)
+const github = __nccwpck_require__(5438)
 const { inputHelper } = __nccwpck_require__(5883)
-const token = core.getInput('token')
-const octokit = github.getOctokit(token)
 
 async function getRepositoryId() {
+  const token = core.getInput('token')
+  const octokit = github.getOctokit(token, {
+    userAgent: 'getRepositoryIdVersion1'
+  })
   const repo = inputHelper()
   const query = `query($owner:String!, $name:String!) {
     repository(owner:$owner, name:$name){
@@ -29000,14 +29002,6 @@ async function run() {
 module.exports = {
   run
 }
-
-
-/***/ }),
-
-/***/ 1488:
-/***/ ((module) => {
-
-module.exports = eval("require")("actions/github");
 
 
 /***/ }),
