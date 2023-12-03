@@ -2,7 +2,7 @@
  * Function to get the ID of the specified repo
  */
 const core = require('@actions/core')
-const github = require('@actions/github')
+const { graphql } = require('octokit')
 const { inputHelper } = require('./input-helper')
 
 async function getRepositoryId() {
@@ -16,7 +16,7 @@ async function getRepositoryId() {
     owner: repo.owner,
     name: repo.name
   }
-  const result = await github.graphql(query, variables)
+  const result = await graphql(query, variables)
   const repoId = result.repository.id
   return repoId
 }
