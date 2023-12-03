@@ -53,7 +53,7 @@ jobs:
         id: test-action
         uses: ./
         with:
-          repository: nvaccess/nvda
+          repository: 'nvaccess/nvda'
 
       - name: Print Output
         id: output
