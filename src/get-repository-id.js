@@ -2,8 +2,10 @@
  * Function to get the ID of the specified repo
  */
 const core = require('@actions/core')
-const { Octokit, App } = require('octokit')
+const github = require('actions/github')
 const { inputHelper } = require('./input-helper')
+const token = core.getInput('token')
+const octokit = github.getOctokit(token)
 
 async function getRepositoryId() {
   const repo = inputHelper()
@@ -16,7 +18,7 @@ async function getRepositoryId() {
     owner: repo.owner,
     name: repo.name
   }
-  const result = await Octokit.graphql(query, variables)
+  const result = await octokit.graphql(query, variables)
   const repoId = result.repository.id
   return repoId
 }
