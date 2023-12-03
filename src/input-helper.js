@@ -17,8 +17,8 @@ async function inputHelper() {
     )
   }
   const variables = {
-    owner: `${splitRepository[0]}`,
-    name: `${splitRepository[1]}`
+    owner: `nvaccess`,
+    name: `nvda`
   }
   return variables
 }
