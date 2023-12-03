@@ -12,9 +12,9 @@ async function inputHelper() {
   core.debug(`qualified repository = '${qualifiedRepository}'`)
   const splitRepository = qualifiedRepository.split('/')
   if (
-    !splitRepository.length !== 2 ||
-    !splitRepository[0] ||
-    !splitRepository[1]
+    splitRepository.length !== 2 ||
+    splitRepository[0] === '' ||
+    splitRepository[1] === ''
   ) {
     core.setFailed(
       `Invalid repository '${qualifiedRepository}'. Expected format {owner}/{repo}.`
