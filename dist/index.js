@@ -28960,7 +28960,7 @@ async function inputHelper() {
   core.debug(`qualified repository = '${qualifiedRepository}'`)
   const splitRepository = qualifiedRepository.split('/')
   if (
-    splitRepository.length !== 2 ||
+    !splitRepository.length !== 2 ||
     !splitRepository[0] ||
     !splitRepository[1]
   ) {
