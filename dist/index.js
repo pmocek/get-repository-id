@@ -28961,8 +28961,8 @@ async function inputHelper() {
     )
   }
   const variables = {
-    owner: splitRepository[0],
-    name: splitRepository[1]
+    owner: `${splitRepository[0]}`,
+    name: `${splitRepository[1]}`
   }
   return variables
 }
