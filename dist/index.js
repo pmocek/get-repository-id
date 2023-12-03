@@ -41736,7 +41736,7 @@ function wrappy (fn, cb) {
  * Function to get the ID of the specified repo
  */
 const core = __nccwpck_require__(2186)
-const { graphql } = __nccwpck_require__(7467)
+const octokit = __nccwpck_require__(7467)
 const { inputHelper } = __nccwpck_require__(9378)
 
 async function getRepositoryId() {
@@ -41750,7 +41750,7 @@ async function getRepositoryId() {
     owner: repo.owner,
     name: repo.name
   }
-  const result = await graphql(query, variables)
+  const result = await octokit.graphql(query, variables)
   const repoId = result.repository.id
   return repoId
 }
