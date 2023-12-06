@@ -7,7 +7,7 @@ inputs:
   repository:
     description: 'Repository name with owner. For example, nvdaes/getRepositoryId'
     required: true
-    default: '${{ github.repository }}'
+    default: ${{ github.repository }}
   token:
     description: 'GitHub token'
     required: true

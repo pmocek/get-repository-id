@@ -52,9 +52,6 @@ jobs:
       - name: Test Local Action
         id: test-action
         uses: ./
-        with:
-          repository: nvaccess/nvda
-
       - name: Print Output
         id: output
-        run: echo "${{ steps.test-action.outputs.repoId }}"
+        run: echo "${{ steps.test-action.outputs.repo-id }}"
