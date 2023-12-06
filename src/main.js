@@ -10,7 +10,7 @@ async function run() {
   if (!repoId) {
     core.setFailed('ID is undefined')
   }
-  core.setOutput('repoId', repoId)
+  core.setOutput('repo-id', repoId)
 }
 
 module.exports = {

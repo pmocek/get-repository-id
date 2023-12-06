@@ -15,7 +15,7 @@ inputs:
 
 # Define your outputs here.
 outputs:
-  repoId:
+  repo-id:
     description: 'The ID of the specified repository'
 
 runs:

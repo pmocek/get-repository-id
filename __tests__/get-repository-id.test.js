@@ -1,18 +1,21 @@
 /**
  * Unit tests for src/get-repository-id.js
  */
+const github = require('@actions/github')
 const getRepositoryId = require('../src/get-repository-id')
 
 describe('getRepositoryId tests', () => {
   beforeAll(() => {
     // Mock getRepositoryId
-    jest
-      .spyOn(getRepositoryId, 'getRepositoryId')
-      .mockImplementation(() => 'some-id')
+    jest.spyOn(getRepositoryId, 'getRepositoryId').mockImplementation(() => {
+      const gh = github.getOctokit('_')
+      jest.spyOn(gh, 'graphql')
+      return 'some-id'
+    })
   })
 
   afterAll(() => {
-    // Restore
+    // Restore.mockImplementation(jest.fn())
     jest.restoreAllMocks()
   })
 
