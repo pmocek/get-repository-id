@@ -4,6 +4,8 @@ This action gets the ID of the specified GitHub repository.
 
 It can be used in other actions, to make calls to the [GitHub GraphQL API](https://docs.github.com/en/graphql/overview/public-schema).
 
+Note that the ID provided by this action won't be the same as `$GITHUB_REPOSITORY_ID`.
+
 ## Inputs
 
 ### `repository`
