@@ -27,7 +27,7 @@ The ID of the specified repository.
 ```yaml
 - name: Get repo ID
   id: get-repo-id
-  uses: nvdaes/get-repository-id
+  uses: nvdaes/get-repository-id@v1
   with:
     repository: owner/repo
 
