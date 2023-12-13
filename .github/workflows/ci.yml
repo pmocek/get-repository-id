@@ -54,4 +54,5 @@ jobs:
         uses: ./
       - name: Print Output
         id: output
-        run: echo "${{ steps.test-action.outputs.repo-id }}. This is not the same as $GITHUB_REPOSITORY_ID"
+        run: echo "${{ steps.test-action.outputs.repo-id }}. This is not the same as $GITHUB_REPOSITORY_ID. This is ${{ github.repository.node_id }}"
+
