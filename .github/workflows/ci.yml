@@ -52,6 +52,8 @@ jobs:
       - name: Test Local Action
         id: test-action
         uses: ./
+        with:
+          repository: octocat/Hello-World
       - name: Print Output
         id: output
         run: echo "${{ steps.test-action.outputs.repo-id }}. This is not the same as $GITHUB_REPOSITORY_ID"
